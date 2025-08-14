@@ -77,48 +77,80 @@ const Navbar = () => {
       </div>
 
       {/* Mobile Menu */}
-      {isMenuOpen && (
-        <div className="md:hidden absolute top-[90px] left-0 w-full bg-blue-300 z-50 py-4 px-4 ">
-          <ul className="flex flex-col space-y-4">
-            <li>
-            <Link to="/" className="text-black cursor-pointer  font-extralight  text-lg lg:text-xl hover:text-gray-300 transition">
+      {/* Mobile Menu */}
+      <div
+        className={`md:hidden absolute top-[90px] left-0 w-full bg-blue-300 z-50 py-4 px-4
+    transform transition-all duration-300 ease-in-out
+    ${isMenuOpen ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-5 pointer-events-none"}
+  `}
+      >
+        <ul className="flex flex-col space-y-4">
+          <li>
+            <Link
+              to="/"
+              className="text-black cursor-pointer font-extralight text-lg lg:text-xl hover:text-gray-300 transition"
+              onClick={() => setIsMenuOpen(false)}
+            >
               Home
             </Link>
           </li>
           <li>
-            <Link to="/about" className="text-black cursor-pointer font-extralight text-lg lg:text-xl hover:text-gray-300 transition">
+            <Link
+              to="/about"
+              className="text-black cursor-pointer font-extralight text-lg lg:text-xl hover:text-gray-300 transition"
+              onClick={() => setIsMenuOpen(false)}
+            >
               About us
             </Link>
           </li>
           <li>
-            <Link to="/committee" className="text-black  cursor-pointer  font-extralight text-lg lg:text-xl hover:text-gray-300 transition">
+            <Link
+              to="/committee"
+              className="text-black cursor-pointer font-extralight text-lg lg:text-xl hover:text-gray-300 transition"
+              onClick={() => setIsMenuOpen(false)}
+            >
               Committee
             </Link>
           </li>
           <li>
-            <Link to="/schedule" className="text-black  cursor-pointer  font-extralight text-lg lg:text-xl hover:text-gray-300 transition">
+            <Link
+              to="/schedule"
+              className="text-black cursor-pointer font-extralight text-lg lg:text-xl hover:text-gray-300 transition"
+              onClick={() => setIsMenuOpen(false)}
+            >
               Schedule
             </Link>
           </li>
           <li>
-            <Link to="/announcements" className="text-black  cursor-pointer  font-extralight text-lg lg:text-xl hover:text-gray-300 transition">
+            <Link
+              to="/announcements"
+              className="text-black cursor-pointer font-extralight text-lg lg:text-xl hover:text-gray-300 transition"
+              onClick={() => setIsMenuOpen(false)}
+            >
               Announcements
             </Link>
           </li>
           <li>
-            <Link to="/register" className="text-black cursor-pointer  font-extralight text-lg lg:text-xl hover:text-gray-300 transition">
+            <Link
+              to="/register"
+              className="text-black cursor-pointer font-extralight text-lg lg:text-xl hover:text-gray-300 transition"
+              onClick={() => setIsMenuOpen(false)}
+            >
               Register
             </Link>
-
           </li>
-            <li className="flex items-center space-x-4">
-                <Link to="/login" className="gap-1 flex bg-white text-black font-extralight px-4 lg:px-5 py-2 cursor-pointer hover:bg-gray-200 transition items-center">
-                  Login <span className='text-xl mt-1'><GoArrowUpRight /></span>
-                </Link>
-            </li>
-          </ul>
-        </div>
-      )}
+          <li className="flex items-center space-x-4">
+            <Link
+              to="/login"
+              className="gap-1 flex bg-white text-black font-extralight px-4 lg:px-5 py-2 cursor-pointer hover:bg-gray-200 transition items-center"
+              onClick={() => setIsMenuOpen(false)}
+            >
+              Login <span className="text-xl mt-1"><GoArrowUpRight /></span>
+            </Link>
+          </li>
+        </ul>
+      </div>
+
     </div>
   );
 };
