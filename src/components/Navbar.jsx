@@ -111,12 +111,10 @@ const Navbar = () => {
                 Register
               </Link>
             </li>
-            <li>
-              <div className="flex items-center space-x-4">
+            <li className="flex items-center space-x-4">
                 <Link to="/login" className="gap-1 flex bg-white text-black font-medium px-4 lg:px-5 py-2 cursor-pointer hover:bg-gray-200 transition items-center">
                   Login <span className='text-xl mt-1'><GoArrowUpRight /></span>
                 </Link>
-              </div>
             </li>
           </ul>
         </div>
