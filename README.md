@@ -1,12 +1,45 @@
-# React + Vite
+# 🌐 FMUN (Fazaia Model United Nations) Website
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A full-featured website for **Fazaia Model United Nations** built using **React, Firebase, and Stripe**.  
+This platform allows delegates to register for the event, make online or manual payments, and lets the admin manage registrations and verify payments.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 📌 Features
 
-## Expanding the ESLint configuration
+### Public Website
+- **Home Page** – Event info, hero banner, countdown, and highlights.
+- **About FMUN** – Mission, vision, and organizing team.
+- **Committees & Agendas** – Details of committees, topics, and study guides.
+- **Registration Form** – Delegate details saved to Firestore.
+- **Payment Gateway**
+  - **Stripe** for card payments (test/live mode).
+  - **Manual payments** (JazzCash/Easypaisa/bank) with screenshot upload.
+- **Schedule** – Timetable of sessions and ceremonies.
+- **Gallery** – Photos & videos from past FMUNs.
+- **Contact Page** – Email, phone, map, and social media.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+### Admin Panel
+- Protected via **Firebase Authentication** (admin role only).
+- View all registrations.
+- Check payment status:
+  - For Stripe: status updates automatically via webhook.
+  - For manual: view proof image → approve/reject.
+- Update registration/payment status in real-time.
+
+---
+
+## 🛠️ Tech Stack
+
+- **Frontend:** React, Tailwind CSS, React Router, React Hook Form
+- **Backend:** Firebase Cloud Functions (Node.js)
+- **Database:** Firebase Firestore
+- **Authentication:** Firebase Auth
+- **Storage:** Firebase Storage
+- **Payments:** Stripe API (PaymentIntents)
+- **Hosting:** Firebase Hosting
+
+---
+
+## 📂 Folder Structure
+
