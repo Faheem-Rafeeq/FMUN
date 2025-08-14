@@ -24,7 +24,7 @@ const Navbar = () => {
 
       {/* Mobile Menu Button */}
       <div className="md:hidden">
-        <button 
+        <button
           onClick={toggleMenu}
           className="text-white text-2xl focus:outline-none"
         >
@@ -46,12 +46,12 @@ const Navbar = () => {
             </Link>
           </li>
           <li>
-            <Link to="/comittee" className="text-white font-bold cursor-pointer font-sans text-lg lg:text-xl hover:text-gray-300 transition">
+            <Link to="/committee" className="text-white font-bold cursor-pointer font-sans text-lg lg:text-xl hover:text-gray-300 transition">
               Committe
             </Link>
           </li>
           <li>
-            <Link to="/shedule" className="text-white font-bold cursor-pointer font-sans text-lg lg:text-xl hover:text-gray-300 transition">
+            <Link to="/schedule" className="text-white font-bold cursor-pointer font-sans text-lg lg:text-xl hover:text-gray-300 transition">
               Schedule
             </Link>
           </li>
@@ -61,9 +61,9 @@ const Navbar = () => {
             </Link>
           </li>
           <li>
-        <Link to="/register" className="text-white font-bold cursor-pointer font-sans text-lg lg:text-xl hover:text-gray-300 transition">
-          Register
-        </Link>
+            <Link to="/register" className="text-white font-bold cursor-pointer font-sans text-lg lg:text-xl hover:text-gray-300 transition">
+              Register
+            </Link>
 
           </li>
         </ul>
@@ -72,48 +72,51 @@ const Navbar = () => {
       {/* Button - Desktop */}
       <div className="hidden md:block flex items-center space-x-4">
         <Link to="/login" className="gap-1 flex bg-white text-black font-medium px-4 lg:px-5 py-2 cursor-pointer hover:bg-gray-200 transition items-center">
-          Login <span className='text-xl'><GoArrowUpRight/></span>
+          Login <span className='text-xl'><GoArrowUpRight /></span>
         </Link>
       </div>
 
       {/* Mobile Menu */}
       {isMenuOpen && (
-        <div className="md:hidden absolute top-[90px] left-0 w-full bg-black z-50 py-4 px-4">
+        <div className="md:hidden absolute top-[90px] left-0 w-full bg-blue-300 z-50 py-4 px-4">
           <ul className="flex flex-col space-y-4">
             <li>
-              <Link to="/" className="text-white font-bold cursor-pointer font-sans text-xl hover:text-gray-300 transition py-2 block" onClick={() => setIsMenuOpen(false)}>
-                HOME
+              <Link to="/" className=" text-black  cursor-pointer font-sans text-xl hover:text-gray-300 transition py-2 block" onClick={() => setIsMenuOpen(false)}>
+                Home
               </Link>
             </li>
             <li>
-              <Link to="/about" className="text-white font-bold cursor-pointer font-sans text-xl hover:text-gray-300 transition py-2 block" onClick={() => setIsMenuOpen(false)}>
-                ABOUT US
+              <Link to="/about" className=" text-black cursor-pointer font-sans text-xl hover:text-gray-300 transition py-2 block" onClick={() => setIsMenuOpen(false)}>
+                About us
               </Link>
             </li>
             <li>
-              <Link to="/comittee" className="text-white font-bold cursor-pointer font-sans text-xl hover:text-gray-300 transition py-2 block" onClick={() => setIsMenuOpen(false)}>
-                COMMITTEE
+              <Link to="/committee" className=" text-black cursor-pointer font-sans text-xl hover:text-gray-300 transition py-2 block" onClick={() => setIsMenuOpen(false)}>
+                Committee
               </Link>
             </li>
             <li>
-              <Link to="/shedule" className="text-white font-bold cursor-pointer font-sans text-xl hover:text-gray-300 transition py-2 block" onClick={() => setIsMenuOpen(false)}>
-                SCHEDULE
+              <Link to="/schedule" className=" text-black cursor-pointer font-sans text-xl hover:text-gray-300 transition py-2 block" onClick={() => setIsMenuOpen(false)}>
+                Schedule
               </Link>
             </li>
             <li>
-              <Link to="/announcements" className="text-white font-bold cursor-pointer font-sans text-xl hover:text-gray-300 transition py-2 block" onClick={() => setIsMenuOpen(false)}>
-                ANNOUNCEMENTS
+              <Link to="/announcements" className=" text-black cursor-pointer font-sans text-xl hover:text-gray-300 transition py-2 block" onClick={() => setIsMenuOpen(false)}>
+                Announcements
               </Link>
             </li>
+
             <li>
-              <Link to="/register" className="text-white font-bold cursor-pointer font-sans text-xl hover:text-gray-300 transition py-2 block" onClick={() => setIsMenuOpen(false)}>
-                Login
-              </Link>
-            </li>
-            <li>
-              <Link to="/login" className="text-white font-bold cursor-pointer font-sans text-xl hover:text-gray-300 transition py-2 block" onClick={() => setIsMenuOpen(false)}>
+              <Link to="/register" className="text-black cursor-pointer font-sans text-xl hover:text-gray-300 transition py-2 block" onClick={() => setIsMenuOpen(false)}>
                 Register
               </Link>
+            </li>
+            <li>
+              <div className="flex items-center space-x-4">
+                <Link to="/login" className="gap-1 flex bg-white text-black font-medium px-4 lg:px-5 py-2 cursor-pointer hover:bg-gray-200 transition items-center">
+                  Login <span className='text-xl mt-1'><GoArrowUpRight /></span>
+                </Link>
+              </div>
             </li>
           </ul>
         </div>
