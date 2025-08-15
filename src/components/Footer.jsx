@@ -11,7 +11,7 @@ const Footer = () => {
       <div className="max-w-7xl mx-auto">
         <div className="grid  grid-cols-1 md:grid-cols-3 gap-8">
           {/* Left Column - Brand Info */}
-          <div className="space-y-4">
+          <div className="space-y-6">
             <div className="flex items-center">
               <img
                 src={fmunblack}
@@ -24,7 +24,7 @@ const Footer = () => {
               </div>
             </div>
 
-            <div className="space-y-2 mt-[30px]">
+            <div className="space-y-3 mt-[30px]">
               <p className="flex items-center">
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor">
                   <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" />
@@ -48,9 +48,9 @@ const Footer = () => {
           </div>
 
           {/* Middle Column - Quick Links */}
-          <div className="space-y-4">
+          <div className="space-y-5">
             <h3 className="text-xl font-bold">QUICK LINKS</h3>
-            <ul className="space-y-2 font-bold">
+            <ul className="space-y-3 font-bold">
               <li className="flex items-center">
                 <p className='pt-1 px-2'><GoArrowUpRight /></p>
                 <Link to="/" className="hover:text-gray-300 transition">HOME</Link>
@@ -74,6 +74,10 @@ const Footer = () => {
               <li className="flex items-center">
                 <p className='pt-1 px-2'><GoArrowUpRight /></p>
                 <Link to="/register" className="hover:text-gray-300 transition">REGISTER</Link>
+              </li>
+              <li className="flex items-center">
+                <p className='pt-1 px-2'><GoArrowUpRight /></p>
+                <Link to="/login" className="hover:text-gray-300 transition">LOGIN</Link>
               </li>
             </ul>
           </div>
