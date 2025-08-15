@@ -16,7 +16,7 @@ const Navbar = () => {
       {/* Logo */}
       <Link to="/" onClick={() => setIsMenuOpen(false)}>
         <img
-          className="w-[80px] md:w-[87px] h-[70px] md:h-[70px] mt-[7px] cursor-pointer"
+          className="w-[72px] md:w-[75px] h-[70px] md:h-[72px] mt-[2px] cursor-pointer"
           src={fmunblack}
           alt="FMUN Logo"
         />

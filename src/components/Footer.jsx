@@ -1,6 +1,8 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { GoArrowUpRight } from "react-icons/go";
 import fmunblack from "../assets/fmunblack.png"
+import CollegeMap from "../components/Map"
 
 
 const Footer = () => {
@@ -14,17 +16,15 @@ const Footer = () => {
               <img
                 src={fmunblack}
                 alt="FMUN Logo"
-                className="h-12 w-auto"
+                className="h-15 w-auto"
               />
               <div className="ml-3">
                 <h2 className="text-2xl font-bold">FAZAIA</h2>
                 <p className="text-sm">MODEL UNITED NATION</p>
               </div>
-
-
             </div>
 
-            <div className="space-y-2 mt-[70px]">
+            <div className="space-y-2 mt-[30px]">
               <p className="flex items-center">
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor">
                   <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" />
@@ -53,38 +53,41 @@ const Footer = () => {
             <ul className="space-y-2 font-bold">
               <li className="flex items-center">
                 <p className='pt-1 px-2'><GoArrowUpRight /></p>
-                HOME
+                <Link to="/" className="hover:text-gray-300 transition">HOME</Link>
               </li>
               <li className="flex items-center">
                 <p className='pt-1 px-2'><GoArrowUpRight /></p>
-                ABOUT US
+                <Link to="/about" className="hover:text-gray-300 transition">ABOUT US</Link>
               </li>
               <li className="flex items-center">
                 <p className='pt-1 px-2'><GoArrowUpRight /></p>
-
-                COMMITTEE
+                <Link to="/comittee" className="hover:text-gray-300 transition">COMMITTEE</Link>
               </li>
               <li className="flex items-center">
                 <p className='pt-1 px-2'><GoArrowUpRight /></p>
-
-                SCHEDULE
+                <Link to="/shedule" className="hover:text-gray-300 transition">SCHEDULE</Link>
               </li>
               <li className="flex items-center">
                 <p className='pt-1 px-2'><GoArrowUpRight /></p>
-
-                ANNOUNCEMENTS
+                <Link to="/announcements" className="hover:text-gray-300 transition">ANNOUNCEMENTS</Link>
               </li>
               <li className="flex items-center">
                 <p className='pt-1 px-2'><GoArrowUpRight /></p>
-               REGISTER
+                <Link to="/register" className="hover:text-gray-300 transition">REGISTER</Link>
               </li>
             </ul>
+          </div>
+
+          {/* Map Section */}
+          <div className="">
+            <h1 className="text-xl font-bold mb-4">OUR LOCATION</h1>
+            <CollegeMap />
           </div>
 
         </div>
 
         {/* Copyright Section */}
-        <div className="mt-12 pt-6 border-t border-gray-700 text-center font-bold">
+        <div className="mt-5 pt-6 border-t border-gray-700 text-center font-bold">
           <p>COPYRIGHT 2025 © ALL RIGHT RESERVED FAZAIA MODEL UNITED NATION</p>
         </div>
       </div>
