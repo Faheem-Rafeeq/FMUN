@@ -61,7 +61,7 @@ const Footer = () => {
               </li>
               <li className="flex items-center">
                 <p className='pt-1 px-2'><GoArrowUpRight /></p>
-                <Link to="/comittee" className="hover:text-gray-300 transition">COMMITTEE</Link>
+                <Link to="/committee" className="hover:text-gray-300 transition">COMMITTEE</Link>
               </li>
               <li className="flex items-center">
                 <p className='pt-1 px-2'><GoArrowUpRight /></p>
