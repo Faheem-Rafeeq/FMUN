@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { db } from "../Firebase/Firebase.js";
 import { collection, addDoc } from "firebase/firestore";
+import { auth } from "../Firebase/Firebase.js";
 
 const Register = () => {
   const [formData, setFormData] = useState({
