@@ -1,4 +1,5 @@
 import React from "react";
+import bg from "../assets/bg.jpg"
 
 const HomeSection = () => {
   return (
@@ -7,7 +8,7 @@ const HomeSection = () => {
       <div className="absolute inset-0 z-0">
         <div className="absolute inset-0 bg-black opacity-40"></div>
         <img 
-          src="https://lh3.googleusercontent.com/gps-cs-s/AC9h4nrccpg3pbbuqy9w9rzT0vIHyrOrs89cJHg9unWO6WZj4fPu4jar8wjowB-yoOSnTpn9Kyhh9u7ILxDQFZqcVVL9umBlLv-LFyKm0K6VC3uuWRk2aEB_CQPzy5yQmVpEUh_5N-w=w243-h174-n-k-no-nu"
+          src={bg}
           alt="College Campus"
           className="w-full h-full object-cover"
         />
