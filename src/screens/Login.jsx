@@ -1,8 +1,7 @@
 import React, { useState } from "react";
 import { signInWithEmailAndPassword, signOut } from "firebase/auth";
 import { auth } from "../Firebase/Firebase.js";
-import AdminPanel from "./AdminPanel"; // Import your admin panel
-
+import AdminPanel from "./AdminPanel";
 
 const AdminLogin = ({ onClose }) => {
   const [email, setEmail] = useState("");
@@ -17,7 +16,6 @@ const AdminLogin = ({ onClose }) => {
     setError("");
     setLoading(true);
     
-    // First check the admin security code
     if (adminCode !== "123456") {
       setError("Invalid admin security code");
       setLoading(false);
@@ -28,8 +26,7 @@ const AdminLogin = ({ onClose }) => {
       const userCredential = await signInWithEmailAndPassword(auth, email, password);
       const user = userCredential.user;
       
-      // Optional: Check for specific admin emails
-      const adminEmails = ["fmun25@gmail.com"];
+      const adminEmails = ["admin@fmun.com", "superadmin@fmun.com" , "fmun25@gmail.com"];
       if (adminEmails.includes(user.email)) {
         setIsAuthenticated(true);
       } else {
@@ -50,24 +47,24 @@ const AdminLogin = ({ onClose }) => {
     onClose();
   };
 
-  // If authenticated, show Admin Panel
+  // If authenticated, show Admin Panel - FULL SCREEN
   if (isAuthenticated) {
     return (
-      <div className="bg-white rounded-lg w-full max-w-6xl max-h-[90vh] overflow-hidden">
+      <div className="fixed inset-0 z-50 bg-gradient-to-br from-blue-50 to-indigo-100 overflow-auto">
         <AdminPanel onLogout={handleLogout} />
       </div>
     );
   }
 
-  // Show login form
+  // Show login form - CENTERED MODAL
   return (
-    <div className="flex items-center justify-center min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 px-4 py-8">
+    <div className="fixed inset-0 z-50 bg-blue-50 bg-opacity-50 flex items-center justify-center p-4">
       <div className="bg-white text-gray-800 shadow-2xl rounded-2xl p-6 md:p-8 w-full max-w-md mx-auto border border-blue-100 relative">
         
         {/* Close Button */}
         <button 
           onClick={onClose}
-          className="absolute top-4 right-4 text-gray-500 hover:text-gray-700 text-2xl font-bold"
+          className="absolute top-4 right-4 text-gray-500 hover:text-gray-700 text-2xl font-bold z-10"
         >
           ×
         </button>
