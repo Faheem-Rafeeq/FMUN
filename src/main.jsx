@@ -5,8 +5,7 @@ import Layout from './Layout'
 import Home from './screens/Home'
 import About from './screens/About'
 import Comittee from './screens/Comittee'
-import Shedule from './screens/Shedule'
-import Announcements from './screens/Announcements'
+import Status from './screens/Status'
 import Register from './screens/Register'
 import Login from './screens/Login'
 
@@ -32,12 +31,8 @@ const router = createBrowserRouter([
         element: <Comittee />,
       },
       {
-        path: 'schedule',
-        element: <Shedule />,
-      },
-      {
-        path: 'announcements',
-        element: <Announcements />,
+        path: 'status',
+        element: <Status />,
       },
       {
         path: 'register',

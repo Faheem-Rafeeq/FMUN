@@ -51,18 +51,13 @@ const Navbar = () => {
             </Link>
           </li>
           <li>
-            <Link to="/schedule" className="text-black  cursor-pointer  font-extralight text-lg lg:text-xl hover:text-gray-300 transition">
-              Schedule
-            </Link>
-          </li>
-          <li>
-            <Link to="/announcements" className="text-black  cursor-pointer  font-extralight text-lg lg:text-xl hover:text-gray-300 transition">
-              Announcements
+            <Link to="/status" className="text-black  cursor-pointer  font-extralight text-lg lg:text-xl hover:text-gray-300 transition">
+              Status
             </Link>
           </li>
           <li>
             <Link to="/register" className="text-black cursor-pointer  font-extralight text-lg lg:text-xl hover:text-gray-300 transition">
-              Register
+              Register Now
             </Link>
 
           </li>
@@ -114,20 +109,11 @@ const Navbar = () => {
           </li>
           <li>
             <Link
-              to="/schedule"
+              to="/status"
               className="text-black cursor-pointer font-extralight text-lg lg:text-xl hover:text-gray-300 transition"
               onClick={() => setIsMenuOpen(false)}
             >
-              Schedule
-            </Link>
-          </li>
-          <li>
-            <Link
-              to="/announcements"
-              className="text-black cursor-pointer font-extralight text-lg lg:text-xl hover:text-gray-300 transition"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              Announcements
+              Status
             </Link>
           </li>
           <li>
@@ -136,7 +122,7 @@ const Navbar = () => {
               className="text-black cursor-pointer font-extralight text-lg lg:text-xl hover:text-gray-300 transition"
               onClick={() => setIsMenuOpen(false)}
             >
-              Register
+              Register Now
             </Link>
           </li>
           <li className="flex items-center space-x-4">

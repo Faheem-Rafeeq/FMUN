@@ -12,6 +12,7 @@ const AdminPanel = ({ onLogout }) => {
 
   useEffect(() => {
     fetchRegistrations();
+    
   }, []);
 
   const fetchRegistrations = async () => {

@@ -65,15 +65,11 @@ const Footer = () => {
               </li>
               <li className="flex items-center">
                 <p className='pt-1 px-2'><GoArrowUpRight /></p>
-                <Link to="/schedule" className="hover:text-gray-300 transition">SCHEDULE</Link>
+                <Link to="/status" className="hover:text-gray-300 transition">STATUS</Link>
               </li>
               <li className="flex items-center">
                 <p className='pt-1 px-2'><GoArrowUpRight /></p>
-                <Link to="/announcements" className="hover:text-gray-300 transition">ANNOUNCEMENTS</Link>
-              </li>
-              <li className="flex items-center">
-                <p className='pt-1 px-2'><GoArrowUpRight /></p>
-                <Link to="/register" className="hover:text-gray-300 transition">REGISTER</Link>
+                <Link to="/register" className="hover:text-gray-300 transition">REGISTER NOW</Link>
               </li>
               <li className="flex items-center">
                 <p className='pt-1 px-2'><GoArrowUpRight /></p>
