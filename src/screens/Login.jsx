@@ -26,7 +26,7 @@ const AdminLogin = ({ onClose }) => {
       const userCredential = await signInWithEmailAndPassword(auth, email, password);
       const user = userCredential.user;
       
-      const adminEmails = ["admin@fmun.com", "superadmin@fmun.com" , "fmun25@gmail.com"];
+      const adminEmails = ["imfaheemrafeeq78@gmail.com" , "fmun26@gmail.com"];
       if (adminEmails.includes(user.email)) {
         setIsAuthenticated(true);
       } else {
