@@ -18,13 +18,12 @@ const HomeSection = () => {
       <div className="relative z-10 flex flex-col items-center justify-center h-full text-center px-4">
         {/* Animated Welcome Text */}
         <h1 className="text-5xl md:text-7xl font-bold text-white mb-6 animate-fade-in-down">
-          Welcome to <span className="text-blue-400">FMUN26</span>
+          Welcome to <span className="text-blue-400">FMUN</span>
         </h1>
 
         {/* Tagline with animation delay */}
         <p className="text-xl md:text-2xl text-white max-w-2xl mb-8 animate-fade-in-down animate-delay-300">
           Fazaia Model United Nations - Shaping bright futures.
-          sponsored by XII-G and website credit goes to faheem rafeeq
         </p>
 
         {/* Animated Button */}
