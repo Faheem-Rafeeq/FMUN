@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { signInWithEmailAndPassword, signOut } from "firebase/auth";
+import React, { useState, useEffect } from "react";
+import { signInWithEmailAndPassword, signOut, onAuthStateChanged } from "firebase/auth";
 import { auth } from "../Firebase/Firebase.js";
 import AdminPanel from "./AdminPanel";
 
@@ -10,6 +10,23 @@ const AdminLogin = ({ onClose }) => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
+  const [checkingAuth, setCheckingAuth] = useState(true);
+
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, (user) => {
+      if (user) {
+        const adminEmails = ["imfaheemrafeeq78@gmail.com", "fmun26@gmail.com"];
+        if (adminEmails.includes(user.email)) {
+          setIsAuthenticated(true);
+        } else {
+          signOut(auth);
+        }
+      }
+      setCheckingAuth(false);
+    });
+
+    return unsubscribe;
+  }, []);
 
   const handleLogin = async (e) => {
     e.preventDefault();
@@ -26,7 +43,7 @@ const AdminLogin = ({ onClose }) => {
       const userCredential = await signInWithEmailAndPassword(auth, email, password);
       const user = userCredential.user;
       
-      const adminEmails = ["imfaheemrafeeq78@gmail.com" , "fmun26@gmail.com"];
+      const adminEmails = ["imfaheemrafeeq78@gmail.com", "fmun26@gmail.com"];
       if (adminEmails.includes(user.email)) {
         setIsAuthenticated(true);
       } else {
@@ -44,10 +61,20 @@ const AdminLogin = ({ onClose }) => {
     await signOut(auth);
     setIsAuthenticated(false);
     setAdminCode("");
-    onClose();
+    if (onClose) onClose();
   };
 
-  // If authenticated, show Admin Panel - FULL SCREEN
+  if (checkingAuth) {
+    return (
+      <div className="fixed inset-0 z-50 bg-blue-50 bg-opacity-50 flex items-center justify-center">
+        <div className="bg-white p-8 rounded-2xl shadow-xl">
+          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mx-auto"></div>
+          <p className="mt-4 text-gray-600">Checking authentication...</p>
+        </div>
+      </div>
+    );
+  }
+
   if (isAuthenticated) {
     return (
       <div className="fixed inset-0 z-50 bg-gradient-to-br from-blue-50 to-indigo-100 overflow-auto">
@@ -56,12 +83,9 @@ const AdminLogin = ({ onClose }) => {
     );
   }
 
-  // Show login form - CENTERED MODAL
   return (
     <div className="fixed inset-0 z-50 bg-blue-50 bg-opacity-50 flex items-center justify-center p-4">
       <div className="bg-white text-gray-800 shadow-2xl rounded-2xl p-6 md:p-8 w-full max-w-md mx-auto border border-blue-100 relative">
-        
-        {/* Close Button */}
         <button 
           onClick={onClose}
           className="absolute top-4 right-4 text-gray-500 hover:text-gray-700 text-2xl font-bold z-10"
@@ -69,7 +93,6 @@ const AdminLogin = ({ onClose }) => {
           ×
         </button>
         
-        {/* Header */}
         <div className="text-center mb-8">
           <h2 className="text-3xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent mb-3">
             Admin Portal
@@ -79,7 +102,6 @@ const AdminLogin = ({ onClose }) => {
           </p>
         </div>
 
-        {/* Error Message */}
         {error && (
           <div className="mb-6 p-4 bg-red-50 border border-red-200 rounded-lg">
             <p className="text-red-600 text-center font-medium">
@@ -88,9 +110,7 @@ const AdminLogin = ({ onClose }) => {
           </div>
         )}
 
-        {/* Login Form */}
         <form onSubmit={handleLogin} className="space-y-6">
-          {/* Email */}
           <div>
             <label className="block text-sm font-medium text-gray-700 mb-2">
               Admin Email *
@@ -105,7 +125,6 @@ const AdminLogin = ({ onClose }) => {
             />
           </div>
 
-          {/* Password */}
           <div>
             <label className="block text-sm font-medium text-gray-700 mb-2">
               Password *
@@ -120,7 +139,6 @@ const AdminLogin = ({ onClose }) => {
             />
           </div>
 
-          {/* Security Code */}
           <div>
             <label className="block text-sm font-medium text-gray-700 mb-2">
               Security Code *
@@ -135,15 +153,10 @@ const AdminLogin = ({ onClose }) => {
             />
           </div>
 
-          {/* Submit Button */}
           <button
             type="submit"
             disabled={loading}
-            className={`w-full py-4 rounded-lg font-bold text-white transition duration-300 ${
-              loading 
-                ? 'bg-gray-400 cursor-not-allowed' 
-                : 'bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 transform hover:scale-105'
-            }`}
+            className={`w-full py-4 rounded-lg font-bold text-white transition duration-300 ${loading ? 'bg-gray-400 cursor-not-allowed' : 'bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 transform hover:scale-105'}`}
           >
             {loading ? (
               <span className="flex items-center justify-center">
@@ -158,7 +171,6 @@ const AdminLogin = ({ onClose }) => {
             )}
           </button>
 
-          {/* Security Note */}
           <p className="text-center text-xs text-gray-500 mt-4">
             🔒 Secure admin access only
           </p>
