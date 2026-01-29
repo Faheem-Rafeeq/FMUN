@@ -3,64 +3,51 @@ import React from "react";
 const Committees = () => {
   const committees = [
     {
-      acronym: "UNSC",
-      fullForm: "United Nations Security Council",
-      agenda: "Addressing the escalating tensions in the South China Sea: Balancing national sovereignty with freedom of navigation and regional stability",
-      description: "The primary body responsible for maintaining international peace and security. Has the power to make decisions that member states are obligated to implement.",
-      color: "from-red-600 to-red-800",
-      icon: "🛡️",
-      members: "15 Members (5 Permanent)",
-      focus: "International Peace & Security"
-    },
-    {
-      acronym: "DISEC",
-      fullForm: "Disarmament and International Security Committee",
-      agenda: "Regulating the proliferation of autonomous weapons systems and drones in modern warfare",
-      description: "Deals with disarmament, global challenges, and threats to peace that affect the international community.",
+      acronym: "UNGA",
+      fullForm: "United Nations General Assembly",
+      description: "The main deliberative, policymaking and representative organ of the United Nations, comprising all 193 Member States. As the UN's principal forum for multilateral discussion, it addresses international issues covered by the UN Charter.",
       color: "from-blue-600 to-blue-800",
-      icon: "⚔️",
-      members: "All UN Member States",
-      focus: "Disarmament & Military Affairs"
+      icon: "🌍",
+      members: "20 Delegates",
+      focus: "General Debate & Global Issues"
     },
     {
       acronym: "UNHRC",
       fullForm: "United Nations Human Rights Council",
-      agenda: "Addressing the protection of digital privacy rights in the age of mass surveillance and AI",
-      description: "Responsible for strengthening the promotion and protection of human rights around the globe.",
+      description: "An inter-governmental body within the United Nations system responsible for strengthening the promotion and protection of human rights around the globe. It addresses situations of human rights violations and makes recommendations on them.",
       color: "from-green-600 to-green-800",
       icon: "👥",
-      members: "47 Member States",
-      focus: "Human Rights Protection"
+      members: "18 Delegates",
+      focus: "Human Rights Protection & Monitoring"
+    },
+    {
+      acronym: "UNSC",
+      fullForm: "United Nations Security Council",
+      description: "The primary body responsible for maintaining international peace and security. Has the power to make decisions that member states are obligated to implement under the UN Charter. Comprises 5 permanent members with veto power and 10 non-permanent members.",
+      color: "from-red-600 to-red-800",
+      icon: "🛡️",
+      members: "15 Delegates",
+      focus: "International Peace & Security",
+      specialNote: "5 Permanent Members (USA, UK, France, Russia, China) + 10 Non-Permanent Members"
     },
     {
       acronym: "WHO",
       fullForm: "World Health Organization",
-      agenda: "Developing global strategies for pandemic preparedness and response in the post-COVID era",
-      description: "Directs and coordinates international health within the United Nations system.",
+      description: "The directing and coordinating authority on international health within the United Nations system. Responsible for providing leadership on global health matters, shaping the health research agenda, setting norms and standards, and monitoring health trends.",
       color: "from-teal-600 to-teal-800",
       icon: "🏥",
-      members: "194 Member States",
+      members: "17 Delegates",
       focus: "Global Health & Pandemic Response"
     },
     {
-      acronym: "SOCHUM",
-      fullForm: "Social, Humanitarian and Cultural Committee",
-      agenda: "Addressing the global refugee crisis: Developing comprehensive frameworks for protection and integration",
-      description: "Deals with human rights, humanitarian affairs, and social issues affecting people worldwide.",
-      color: "from-purple-600 to-purple-800",
-      icon: "🤝",
-      members: "All UN Member States",
-      focus: "Social & Humanitarian Affairs"
-    },
-    {
       acronym: "PNA",
-      fullForm: "Press & News Agency",
-      agenda: "Covering the FMUN conference: Reporting on debates, resolutions, and diplomatic negotiations",
-      description: "The journalistic arm responsible for documenting proceedings, interviewing delegates, and publishing daily bulletins.",
+      fullForm: "Pakistan National Assembly",
+      description: "The lower house of the Parliament of Pakistan, responsible for legislation, oversight of the executive, and representation of the people. Simulates the actual political dynamics of Pakistan's parliamentary system with representation from major political parties.",
       color: "from-amber-600 to-amber-800",
-      icon: "📰",
-      members: "Selected Journalists",
-      focus: "Media Coverage & Reporting"
+      icon: "🏛️",
+      members: "35 Delegates",
+      focus: "National Legislation & Governance",
+      specialNote: "Party Representation: 10 PTI, 10 PML-N, 10 PPP, 5 Independents"
     }
   ];
 
@@ -71,11 +58,15 @@ const Committees = () => {
         {/* Header */}
         <div className="text-center mb-12 animate-fade-in">
           <h1 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent mb-4">
-            FMUN Committees
+            FMUN Committees 2026
           </h1>
           <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">
-            Explore the diverse committees of FMUN 2024, each tackling critical global issues through diplomacy and debate.
+            Explore our diverse committee structure with realistic representation and diplomatic challenges.
           </p>
+          <div className="mt-6 inline-flex items-center bg-gradient-to-r from-blue-500 to-purple-600 text-white px-6 py-2 rounded-full font-medium">
+            <span className="mr-2">📊</span>
+            Total Capacity: 105 Delegates
+          </div>
         </div>
 
         {/* Committees Grid */}
@@ -110,17 +101,6 @@ const Committees = () => {
 
               {/* Content */}
               <div className="p-6">
-                {/* Agenda */}
-                <div className="mb-6">
-                  <div className="flex items-center mb-3">
-                    <div className="w-3 h-3 rounded-full bg-blue-500 mr-2 animate-pulse"></div>
-                    <h3 className="text-lg font-semibold text-gray-800">Agenda</h3>
-                  </div>
-                  <p className="text-gray-700 bg-blue-50 p-4 rounded-lg border border-blue-100 text-sm md:text-base">
-                    "{committee.agenda}"
-                  </p>
-                </div>
-
                 {/* Description */}
                 <div className="mb-6">
                   <h3 className="text-lg font-semibold text-gray-800 mb-3 flex items-center">
@@ -130,6 +110,19 @@ const Committees = () => {
                     {committee.description}
                   </p>
                 </div>
+
+                {/* Special Note */}
+                {committee.specialNote && (
+                  <div className="mb-6 p-4 bg-yellow-50 border border-yellow-200 rounded-lg">
+                    <div className="flex items-start">
+                      <span className="text-yellow-600 mr-2">📌</span>
+                      <div>
+                        <h4 className="font-semibold text-yellow-800 mb-1">Special Structure</h4>
+                        <p className="text-yellow-700 text-sm">{committee.specialNote}</p>
+                      </div>
+                    </div>
+                  </div>
+                )}
 
                 {/* Focus Area */}
                 <div className="mb-6">
@@ -147,7 +140,7 @@ const Committees = () => {
                     <div className="text-2xl font-bold text-gray-800 mb-1">
                       {committee.members.split(" ")[0]}
                     </div>
-                    <div className="text-xs text-gray-500">Members</div>
+                    <div className="text-xs text-gray-500">Delegates</div>
                   </div>
                   <div className="text-center">
                     <div className="text-2xl font-bold text-gray-800 mb-1">
@@ -162,29 +155,105 @@ const Committees = () => {
               <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-blue-500 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
             </div>
           ))}
+
+          {/* Total Overview Card */}
+          <div className="group relative bg-gradient-to-br from-purple-600 to-pink-600 rounded-2xl shadow-xl overflow-hidden border border-purple-500 transform transition-all duration-300 hover:scale-[1.02] hover:shadow-2xl animate-slide-up md:col-span-2 lg:col-span-3">
+            <div className="p-6 text-white">
+              <div className="flex flex-col md:flex-row md:items-center justify-between">
+                <div className="mb-6 md:mb-0">
+                  <h2 className="text-2xl md:text-3xl font-bold mb-2">FMUN 2026 Overview</h2>
+                  <p className="text-purple-100">Complete Committee Structure & Distribution</p>
+                </div>
+                <div className="text-center md:text-right">
+                  <div className="text-4xl md:text-5xl font-bold mb-1">105</div>
+                  <div className="text-purple-200">Total Delegates</div>
+                </div>
+              </div>
+              
+              <div className="mt-8 grid grid-cols-2 md:grid-cols-5 gap-4">
+                {committees.map((committee) => (
+                  <div key={committee.acronym} className="text-center p-4 bg-white/10 rounded-lg backdrop-blur-sm">
+                    <div className="text-2xl mb-2">{committee.icon}</div>
+                    <div className="font-bold">{committee.acronym}</div>
+                    <div className="text-sm text-white/80 mt-1">{committee.members}</div>
+                  </div>
+                ))}
+              </div>
+              
+              {/* UNSC Special Structure */}
+              <div className="mt-8 p-4 bg-white/10 rounded-lg border border-white/20">
+                <h3 className="font-bold text-lg mb-2">🏛️ UNSC Special Composition</h3>
+                <div className="grid grid-cols-2 md:grid-cols-5 gap-3">
+                  <div className="text-center">
+                    <div className="font-bold text-white">Permanent</div>
+                    <div className="text-sm text-white/80">5 Members</div>
+                  </div>
+                  <div className="text-center">
+                    <div className="font-bold text-white">Non-Permanent</div>
+                    <div className="text-sm text-white/80">10 Members</div>
+                  </div>
+                  <div className="text-center">
+                    <div className="font-bold text-white">🇺🇸 USA</div>
+                    <div className="text-sm text-white/80">Permanent</div>
+                  </div>
+                  <div className="text-center">
+                    <div className="font-bold text-white">🇬🇧 UK</div>
+                    <div className="text-sm text-white/80">Permanent</div>
+                  </div>
+                  <div className="text-center">
+                    <div className="font-bold text-white">🇫🇷 France</div>
+                    <div className="text-sm text-white/80">Permanent</div>
+                  </div>
+                </div>
+              </div>
+              
+              {/* PNA Party Distribution */}
+              <div className="mt-8 p-4 bg-white/10 rounded-lg border border-white/20">
+                <h3 className="font-bold text-lg mb-2">🇵🇰 PNA Party Distribution</h3>
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+                  <div className="text-center">
+                    <div className="font-bold text-white">PTI</div>
+                    <div className="text-sm text-white/80">10 Delegates</div>
+                  </div>
+                  <div className="text-center">
+                    <div className="font-bold text-white">PML-N</div>
+                    <div className="text-sm text-white/80">10 Delegates</div>
+                  </div>
+                  <div className="text-center">
+                    <div className="font-bold text-white">PPP</div>
+                    <div className="text-sm text-white/80">10 Delegates</div>
+                  </div>
+                  <div className="text-center">
+                    <div className="font-bold text-white">Independents</div>
+                    <div className="text-sm text-white/80">5 Delegates</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
 
         {/* Info Section */}
         <div className="mt-12 bg-white rounded-2xl shadow-lg p-6 md:p-8 border border-blue-100 animate-fade-in">
           <div className="max-w-4xl mx-auto">
             <h2 className="text-2xl md:text-3xl font-bold text-gray-800 mb-6 text-center">
-              About FMUN Committees
+              Committee Selection Process
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               <div className="text-center p-4">
+                <div className="text-4xl mb-4">🎯</div>
+                <h3 className="text-xl font-semibold text-gray-800 mb-2">Based on Capacity</h3>
+                <p className="text-gray-600">Committees have specific delegate capacities ranging from 15-35 members.</p>
+              </div>
+              <div className="text-center p-4">
                 <div className="text-4xl mb-4">🏛️</div>
-                <h3 className="text-xl font-semibold text-gray-800 mb-2">Simulated Environment</h3>
-                <p className="text-gray-600">Experience real UN committee proceedings in an authentic simulation.</p>
+                <h3 className="text-xl font-semibold text-gray-800 mb-2">Realistic Representation</h3>
+                <p className="text-gray-600">UNSC follows actual UN structure with permanent and non-permanent members.</p>
               </div>
               <div className="text-center p-4">
-                <div className="text-4xl mb-4">💬</div>
-                <h3 className="text-xl font-semibold text-gray-800 mb-2">Diplomatic Dialogue</h3>
-                <p className="text-gray-600">Engage in constructive debates and diplomatic negotiations.</p>
-              </div>
-              <div className="text-center p-4">
-                <div className="text-4xl mb-4">🌍</div>
-                <h3 className="text-xl font-semibold text-gray-800 mb-2">Global Issues</h3>
-                <p className="text-gray-600">Address pressing international concerns through multilateral cooperation.</p>
+                <div className="text-4xl mb-4">🇵🇰</div>
+                <h3 className="text-xl font-semibold text-gray-800 mb-2">National Simulation</h3>
+                <p className="text-gray-600">PNA replicates Pakistan's actual parliamentary party distribution.</p>
               </div>
             </div>
           </div>
@@ -193,24 +262,24 @@ const Committees = () => {
         {/* Selection Tips */}
         <div className="mt-8 bg-gradient-to-r from-blue-500 to-purple-600 rounded-2xl shadow-lg p-6 md:p-8 text-white animate-slide-up">
           <h3 className="text-xl md:text-2xl font-bold mb-4 text-center">
-            💡 Committee Selection Tips
+            💡 Committee Selection Guide
           </h3>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div className="flex items-start">
               <div className="bg-white/20 p-2 rounded-lg mr-3">1</div>
-              <p>Choose a committee aligned with your interests and expertise</p>
+              <p>Choose based on your interest in global vs national politics</p>
             </div>
             <div className="flex items-start">
               <div className="bg-white/20 p-2 rounded-lg mr-3">2</div>
-              <p>Consider the agenda topic's relevance to current global affairs</p>
+              <p>Consider committee size - smaller committees offer more speaking time</p>
             </div>
             <div className="flex items-start">
               <div className="bg-white/20 p-2 rounded-lg mr-3">3</div>
-              <p>Research your assigned country's position on the agenda</p>
+              <p>UNSC is ideal for those interested in security and veto power dynamics</p>
             </div>
             <div className="flex items-start">
               <div className="bg-white/20 p-2 rounded-lg mr-3">4</div>
-              <p>Prepare position papers and speaking points in advance</p>
+              <p>PNA offers experience in domestic parliamentary politics</p>
             </div>
           </div>
         </div>

@@ -5,39 +5,25 @@ const AboutUs = () => {
 
   const testimonials = [
     {
-      name: "Ayesha Khan",
-      role: "Best Delegate, UNSC 2023",
+      name: "Faizan Afzal",
+      role: "Best Delegate, UNSC 2024",
       review: "FMUN transformed my perspective on international diplomacy. The level of debate was exceptional!",
       rating: 5,
       image: "👩‍🎓"
     },
     {
-      name: "Mohammad Ali",
-      role: "President, SOCHUM 2023",
+      name: "Zeeshan Arafan",
+      role: "Delegate, 2024",
       review: "The most professionally organized MUN I've attended. The executive board was outstanding!",
       rating: 5,
       image: "👨‍💼"
     },
     {
-      name: "Fatima Ahmed",
-      role: "Journalist, PNA 2023",
+      name: "Ali Asghar Abbas",
+      role: "Delegate, PNA 2024",
       review: "Covering FMUN was an incredible experience. The press team atmosphere was electrifying!",
       rating: 4,
       image: "👩‍💻"
-    },
-    {
-      name: "Hamza Shah",
-      role: "Delegate, WHO 2023",
-      review: "Made lifelong friends and learned so much about global health diplomacy. Highly recommended!",
-      rating: 5,
-      image: "👨‍⚕️"
-    },
-    {
-      name: "Sara Iqbal",
-      role: "Crisis Committee 2023",
-      review: "The crisis simulations were intense and realistic. Truly tested our diplomatic skills!",
-      rating: 5,
-      image: "👩‍⚖️"
     }
   ];
 
@@ -48,11 +34,11 @@ const AboutUs = () => {
     },
     {
       question: "Who can participate in FMUN?",
-      answer: "FMUN is open to all university and college students. No prior MUN experience is required."
+      answer: "FMUN is open to all FDC Faisal students. No prior MUN experience is required."
     },
     {
       question: "What committees are available?",
-      answer: "We offer UNSC, DISEC, UNHRC, WHO, SOCHUM, and PNA committees covering various global issues."
+      answer: "We offer UNSC, UNHRC, WHO, UNGO, and PNA committees covering various global issues."
     },
     {
       question: "How can I register?",
@@ -63,7 +49,7 @@ const AboutUs = () => {
   const stats = [
     { number: "500+", label: "Past Delegates" },
     { number: "6", label: "Committees" },
-    { number: "3", label: "Conference Days" },
+    { number: "2", label: "Conference Days" },
     { number: "50+", label: "Executive Board" }
   ];
 
@@ -212,7 +198,7 @@ const AboutUs = () => {
                   <div>
                     <h3 className="text-2xl font-bold text-gray-900 mb-3">About FMUN</h3>
                     <p className="text-gray-600 leading-relaxed">
-                      FMUN (Future Model United Nations) is one of Pakistan's premier MUN conferences, 
+                      FMUN (Future Model United Nations) is one of premier MUN conferences, 
                       organized annually to provide students with a platform to engage in meaningful 
                       diplomatic discourse. Since our inception, we have hosted thousands of delegates 
                       from across the country.
@@ -225,21 +211,21 @@ const AboutUs = () => {
                           <div className="relative">
                             <div className="absolute -left-9 top-2 w-4 h-4 bg-blue-500 rounded-full"></div>
                             <div>
-                              <div className="font-bold text-gray-800">2020</div>
-                              <div className="text-gray-600">First FMUN conference with 200+ delegates</div>
+                              <div className="font-bold text-gray-800">2023</div>
+                              <div className="text-gray-600"> FMUN conference with 200+ delegates</div>
                             </div>
                           </div>
                           <div className="relative">
                             <div className="absolute -left-9 top-2 w-4 h-4 bg-purple-500 rounded-full"></div>
                             <div>
-                              <div className="font-bold text-gray-800">2022</div>
+                              <div className="font-bold text-gray-800">2024</div>
                               <div className="text-gray-600">Expanded to 6 committees with international participation</div>
                             </div>
                           </div>
                           <div className="relative">
                             <div className="absolute -left-9 top-2 w-4 h-4 bg-green-500 rounded-full"></div>
                             <div>
-                              <div className="font-bold text-gray-800">2024</div>
+                              <div className="font-bold text-gray-800">2026</div>
                               <div className="text-gray-600">Largest edition with 500+ delegates expected</div>
                             </div>
                           </div>
@@ -315,7 +301,7 @@ const AboutUs = () => {
             <div className="flex flex-col md:flex-row items-center md:items-start space-y-6 md:space-y-0 md:space-x-8">
               <div className="flex-shrink-0">
                 <div className="w-32 h-32 bg-white/20 rounded-full flex items-center justify-center">
-                  <span className="text-5xl">👨‍🏫</span>
+                  <span className="text-5xl"></span>
                 </div>
               </div>
               <div className="flex-1 text-white">
@@ -331,8 +317,8 @@ const AboutUs = () => {
                   builds bridges between cultures."
                 </blockquote>
                 <div>
-                  <div className="font-bold text-xl">Prof. Dr. Ahmed Hassan</div>
-                  <div className="text-white/80">Principal, FMUN Host Institution</div>
+                  <div className="font-bold text-xl">Uzma Ali</div>
+                  <div className="text-white/80">Principal, Fazaia Degree College Faisal</div>
                 </div>
               </div>
             </div>
@@ -421,7 +407,7 @@ const AboutUs = () => {
       <div className="py-12 px-4 sm:px-6 lg:px-8 text-center">
         <div className="max-w-4xl mx-auto">
           <h2 className="text-3xl font-bold text-gray-900 mb-6 animate-fade-in">
-            Ready to Join FMUN 2024?
+            Ready to Join FMUN 2026?
           </h2>
           <p className="text-xl text-gray-600 mb-8 animate-slide-up">
             Become part of Pakistan's premier diplomatic simulation

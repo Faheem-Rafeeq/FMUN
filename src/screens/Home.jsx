@@ -4,9 +4,9 @@ import { Link } from "react-router-dom";
 const Home = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
   
-  // Countdown timer
+  // Countdown timer - Updated to February 14, 2026
   const calculateTimeLeft = () => {
-    const eventDate = new Date('December 15, 2024 09:00:00').getTime();
+    const eventDate = new Date('February 14, 2026 09:00:00').getTime();
     const now = new Date().getTime();
     const difference = eventDate - now;
     
@@ -44,17 +44,17 @@ const Home = () => {
 
   const heroSlides = [
     {
-      title: "Welcome to FMUN 2024",
+      title: "Welcome to FMUN 2026",
       subtitle: "Where Diplomacy Meets Leadership",
       bg: "from-blue-600 to-purple-700"
     },
     {
-      title: "Shape the Future",
-      subtitle: "Debate Critical Global Issues",
+      title: "Registration Starting Soon",
+      subtitle: "Get Ready to Reserve Your Spot",
       bg: "from-purple-600 to-pink-700"
     },
     {
-      title: "Join the Discourse",
+      title: "Join the Diplomatic Discourse",
       subtitle: "Experience Model United Nations",
       bg: "from-indigo-600 to-blue-700"
     }
@@ -62,11 +62,11 @@ const Home = () => {
 
   const committees = [
     { name: "UNSC", color: "bg-red-500", desc: "Security Council" },
-    { name: "DISEC", color: "bg-blue-500", desc: "Disarmament" },
+    { name: "UNGA", color: "bg-blue-500", desc: "UN General Assembly" },
     { name: "UNHRC", color: "bg-green-500", desc: "Human Rights" },
     { name: "WHO", color: "bg-teal-500", desc: "Health Organization" },
     { name: "SOCHUM", color: "bg-purple-500", desc: "Social Affairs" },
-    { name: "PNA", color: "bg-amber-500", desc: "Press & Media" }
+    { name: "PNA", color: "bg-amber-500", desc: "Pakistan National Assembly" }
   ];
 
   return (
@@ -120,14 +120,32 @@ const Home = () => {
             ))}
           </div>
 
+          {/* Registration Announcement */}
+          <div className="mb-8 animate-fade-in">
+            <Link
+              to="/register" className="inline-flex items-center bg-gradient-to-r from-blue-500 to-purple-600 text-white px-6 py-3 rounded-full font-bold text-lg mb-4">
+              <span className="animate-pulse mr-2">🔔</span>
+Register Now          </Link>
+            <div className="relative overflow-hidden max-w-md mx-auto">
+              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/50 to-transparent animate-shimmer"></div>
+              <div className="relative bg-white/80 backdrop-blur-sm rounded-xl p-4 border-2 border-dashed border-blue-300">
+                <p className="text-gray-700 font-medium">
+                  Join us for an incredible event!
+                </p>
+              </div>
+            </div>
+          </div>
+
           {/* Countdown Timer */}
           <div className="mb-12 animate-fade-in">
             <h3 className="text-2xl font-semibold text-gray-800 mb-6">Conference Starts In</h3>
             <div className="flex justify-center space-x-4 md:space-x-8">
               {Object.entries(timeLeft).map(([unit, value]) => (
                 <div key={unit} className="text-center">
-                  <div className="bg-white/80 backdrop-blur-sm rounded-xl p-4 md:p-6 shadow-lg">
-                    <div className="text-3xl md:text-4xl font-bold text-blue-600">{value}</div>
+                  <div className="bg-white/80 backdrop-blur-sm rounded-xl p-4 md:p-6 shadow-lg border border-gray-200">
+                    <div className="text-3xl md:text-4xl font-bold text-blue-600">
+                      {value < 10 ? `0${value}` : value}
+                    </div>
                     <div className="text-sm md:text-base font-medium text-gray-600 uppercase mt-2">{unit}</div>
                   </div>
                 </div>
@@ -136,29 +154,10 @@ const Home = () => {
           </div>
 
           {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row gap-4 justify-center animate-slide-up">
-            <Link
-              to="/register"
-              className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-8 py-4 rounded-xl font-bold text-lg transition-all duration-300 transform hover:scale-105 shadow-lg"
-            >
-              Register Now
-            </Link>
-            <Link
-              to="/committee"
-              className="bg-white/90 backdrop-blur-sm hover:bg-white text-gray-800 px-8 py-4 rounded-xl font-bold text-lg transition-all duration-300 transform hover:scale-105 shadow-lg border border-gray-200"
-            >
-              View Committees
-            </Link>
-          </div>
+       
         </div>
 
-        {/* Scroll Indicator */}
-        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
-          <div className="text-gray-600">Scroll Down</div>
-          <svg className="w-6 h-6 mx-auto mt-2 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
-          </svg>
-        </div>
+      
       </div>
 
       {/* Event Details Section */}
@@ -168,7 +167,7 @@ const Home = () => {
             Event Details
           </h2>
 
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
             {/* Venue & Dates */}
             <div className="bg-white rounded-2xl shadow-xl p-8 transform transition-all duration-300 hover:scale-[1.02] animate-slide-up">
               <div className="text-center mb-6">
@@ -178,29 +177,119 @@ const Home = () => {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                   </svg>
                 </div>
-                <h3 className="text-2xl font-bold text-gray-900">Venue & Dates</h3>
+                <h3 className="text-2xl font-bold text-gray-900">Event Schedule & Venue</h3>
               </div>
               
               <div className="space-y-6">
+                {/* Dates */}
                 <div className="text-center p-4 bg-blue-50 rounded-xl">
-                  <div className="text-sm font-medium text-blue-600 mb-1">Date</div>
-                  <div className="text-2xl font-bold text-gray-900">December 15-17, 2024</div>
+                  <div className="text-sm font-medium text-blue-600 mb-1">Dates</div>
+                  <div className="text-2xl font-bold text-gray-900">February 14-15, 2026</div>
+                  <div className="text-gray-600 mt-2">Two Days of Diplomatic Excellence</div>
                 </div>
                 
+                {/* Venue */}
                 <div className="text-center p-4 bg-purple-50 rounded-xl">
-                  <div className="text-sm font-medium text-purple-600 mb-1">Time</div>
-                  <div className="text-2xl font-bold text-gray-900">9:00 AM - 6:00 PM Daily</div>
+                  <div className="text-sm font-medium text-purple-600 mb-1">Venue</div>
+                  <div className="text-xl font-bold text-gray-900">Fazaia Degree College, Faisal</div>
+                  <div className="text-gray-600 mt-2">Air base Faisal</div>
                 </div>
                 
-                <div className="text-center p-4 bg-indigo-50 rounded-xl">
-                  <div className="text-sm font-medium text-indigo-600 mb-1">Venue</div>
-                  <div className="text-xl font-bold text-gray-900">FMUN Convention Center</div>
-                  <div className="text-gray-600 mt-2">123 Diplomacy Street, Islamabad</div>
+                {/* Detailed Schedule */}
+                <div className="text-center p-4 bg-gradient-to-r from-blue-50 to-purple-50 rounded-xl border border-blue-100">
+                  <div className="text-sm font-medium text-indigo-600 mb-3">Detailed Schedule</div>
+                  
+                  {/* Day 1 */}
+                  <div className="mb-4 text-left">
+                    <div className="font-bold text-gray-800 mb-2 flex items-center">
+                      <span className="bg-blue-500 text-white text-xs px-2 py-1 rounded mr-2">Day 1</span>
+                      February 14, 2026
+                    </div>
+                    <div className="space-y-2 text-sm text-gray-700 ml-6">
+                      <div className="flex items-center">
+                        <div className="w-2 h-2 bg-blue-500 rounded-full mr-3"></div>
+                        <span className="font-medium">9:00 AM</span>
+                        <span className="ml-3">Opening Ceremony & Orientation</span>
+                      </div>
+                      <div className="flex items-center">
+                        <div className="w-2 h-2 bg-blue-500 rounded-full mr-3"></div>
+                        <span className="font-medium">10:30 AM</span>
+                        <span className="ml-3">Committee Session 1</span>
+                      </div>
+                      <div className="flex items-center">
+                        <div className="w-2 h-2 bg-green-500 rounded-full mr-3"></div>
+                        <span className="font-medium">1:00 PM</span>
+                        <span className="ml-3">Lunch Break</span>
+                      </div>
+                      <div className="flex items-center">
+                        <div className="w-2 h-2 bg-blue-500 rounded-full mr-3"></div>
+                        <span className="font-medium">2:30 PM</span>
+                        <span className="ml-3">Committee Session 2</span>
+                      </div>
+                      <div className="flex items-center">
+                        <div className="w-2 h-2 bg-green-500 rounded-full mr-3"></div>
+                        <span className="font-medium">4:30 PM</span>
+                        <span className="ml-3">Tea Break</span>
+                      </div>
+                      <div className="flex items-center">
+                        <div className="w-2 h-2 bg-purple-500 rounded-full mr-3"></div>
+                        <span className="font-medium">8:00 PM</span>
+                        <span className="ml-3">Qawali Night</span>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  {/* Day 2 */}
+                  <div className="text-left">
+                    <div className="font-bold text-gray-800 mb-2 flex items-center">
+                      <span className="bg-purple-500 text-white text-xs px-2 py-1 rounded mr-2">Day 2</span>
+                      February 15, 2026
+                    </div>
+                    <div className="space-y-2 text-sm text-gray-700 ml-6">
+                      <div className="flex items-center">
+                        <div className="w-2 h-2 bg-blue-500 rounded-full mr-3"></div>
+                        <span className="font-medium">9:00 AM</span>
+                        <span className="ml-3">Committee Session 3</span>
+                      </div>
+                      <div className="flex items-center">
+                        <div className="w-2 h-2 bg-green-500 rounded-full mr-3"></div>
+                        <span className="font-medium">11:00 AM</span>
+                        <span className="ml-3">Break</span>
+                      </div>
+                      <div className="flex items-center">
+                        <div className="w-2 h-2 bg-blue-500 rounded-full mr-3"></div>
+                        <span className="font-medium">11:30 AM</span>
+                        <span className="ml-3">Committee Session 4</span>
+                      </div>
+                      <div className="flex items-center">
+                        <div className="w-2 h-2 bg-amber-500 rounded-full mr-3"></div>
+                        <span className="font-medium">2:00 PM</span>
+                        <span className="ml-3">Prize Distribution Ceremony</span>
+                      </div>
+                      <div className="flex items-center">
+                        <div className="w-2 h-2 bg-red-500 rounded-full mr-3"></div>
+                        <span className="font-medium">7:00 PM</span>
+                        <span className="ml-3">Gala Dinner</span>
+                      </div>
+                      <div className="flex items-center">
+                        <div className="w-2 h-2 bg-pink-500 rounded-full mr-3"></div>
+                        <span className="font-medium">9:00 PM</span>
+                        <span className="ml-3">Fireworks Display</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                
+                {/* Time Note */}
+                <div className="text-center p-3 bg-amber-50 rounded-lg border border-amber-200">
+                  <div className="text-sm text-amber-700">
+                    <span className="font-medium">Note:</span> All times are approximate and subject to change
+                  </div>
                 </div>
               </div>
             </div>
 
-            {/* Fee Structure */}
+            {/* Fee Structure - Updated */}
             <div className="bg-white rounded-2xl shadow-xl p-8 transform transition-all duration-300 hover:scale-[1.02] animate-slide-up" style={{animationDelay: '100ms'}}>
               <div className="text-center mb-6">
                 <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
@@ -209,71 +298,51 @@ const Home = () => {
                   </svg>
                 </div>
                 <h3 className="text-2xl font-bold text-gray-900">Fee Structure</h3>
+                <p className="text-gray-600 mt-2">All inclusive package</p>
               </div>
               
               <div className="space-y-6">
-                <div className="p-4 bg-gradient-to-r from-blue-500 to-purple-600 rounded-xl text-white">
-                  <div className="text-sm font-medium mb-1">Delegate Fee</div>
-                  <div className="text-3xl font-bold">PKR 2,500</div>
-                  <div className="text-sm opacity-90 mt-2">Full Conference Access</div>
-                </div>
-                
                 <div className="p-4 bg-gradient-to-r from-green-500 to-teal-600 rounded-xl text-white">
                   <div className="text-sm font-medium mb-1">Observer Fee</div>
-                  <div className="text-3xl font-bold">PKR 1,500</div>
-                  <div className="text-sm opacity-90 mt-2">Observation Only</div>
+                  <div className="text-3xl font-bold">PKR 2,500</div>
+                  <div className="text-sm opacity-90 mt-2">Observation Access Only</div>
+                  <div className="text-xs opacity-80 mt-1">Conference Materials Included</div>
+                </div>
+                
+                <div className="p-4 bg-gradient-to-r from-blue-500 to-purple-600 rounded-xl text-white">
+                  <div className="text-sm font-medium mb-1">Delegate Fee</div>
+                  <div className="text-3xl font-bold">PKR 2,000</div>
+                  <div className="text-sm opacity-90 mt-2">Full Participation Access</div>
+                  <div className="text-xs opacity-80 mt-1">Debate & Committee Sessions</div>
                 </div>
                 
                 <div className="p-4 bg-gradient-to-r from-pink-500 to-rose-600 rounded-xl text-white">
                   <div className="text-sm font-medium mb-1">Qawali Night</div>
-                  <div className="text-3xl font-bold">PKR 500</div>
-                  <div className="text-sm opacity-90 mt-2">Additional Ticket</div>
+                  <div className="text-3xl font-bold">PKR 1,500</div>
+                  <div className="text-sm opacity-90 mt-2">Additional Cultural Event</div>
+                  <div className="text-xs opacity-80 mt-1">Separate Ticket Required</div>
                 </div>
               </div>
               
-              <div className="mt-8 text-center">
-                <p className="text-sm text-gray-600">Early bird discounts available until November 30</p>
-              </div>
-            </div>
-
-            {/* Contact Information */}
-            <div className="bg-white rounded-2xl shadow-xl p-8 transform transition-all duration-300 hover:scale-[1.02] animate-slide-up" style={{animationDelay: '200ms'}}>
-              <div className="text-center mb-6">
-                <div className="w-16 h-16 bg-amber-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <svg className="w-8 h-8 text-amber-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
-                  </svg>
-                </div>
-                <h3 className="text-2xl font-bold text-gray-900">Contact & Help</h3>
-              </div>
-              
-              <div className="space-y-6">
-                <div className="p-4 bg-amber-50 rounded-xl">
-                  <div className="text-sm font-medium text-amber-600 mb-1">Email Support</div>
-                  <div className="text-lg font-bold text-gray-900">support@fmun.com</div>
-                  <div className="text-sm text-gray-600 mt-2">For registration queries</div>
-                </div>
-                
-                <div className="p-4 bg-blue-50 rounded-xl">
-                  <div className="text-sm font-medium text-blue-600 mb-1">Phone Support</div>
-                  <div className="text-lg font-bold text-gray-900">+92 300 1234567</div>
-                  <div className="text-sm text-gray-600 mt-2">Available 9AM-5PM</div>
-                </div>
-                
-                <div className="p-4 bg-green-50 rounded-xl">
-                  <div className="text-sm font-medium text-green-600 mb-1">Emergency Contact</div>
-                  <div className="text-lg font-bold text-gray-900">+92 300 7654321</div>
-                  <div className="text-sm text-gray-600 mt-2">Event day emergencies</div>
-                </div>
-              </div>
-              
-              <div className="mt-8">
-                <h4 className="font-bold text-gray-900 mb-4">Quick Links</h4>
-                <div className="grid grid-cols-2 gap-3">
-                  <Link to="/faq" className="text-blue-600 hover:text-blue-800 text-sm font-medium">FAQ</Link>
-                  <Link to="/schedule" className="text-blue-600 hover:text-blue-800 text-sm font-medium">Schedule</Link>
-                  <Link to="/status" className="text-blue-600 hover:text-blue-800 text-sm font-medium">Check Status</Link>
-                  <Link to="/admin" className="text-blue-600 hover:text-blue-800 text-sm font-medium">Admin</Link>
+              <div className="mt-8 p-4 bg-blue-50 rounded-xl border border-blue-200">
+                <h4 className="font-bold text-blue-800 mb-2">Package Inclusions</h4>
+                <div className="grid grid-cols-2 gap-2 text-sm">
+                  <div className="flex items-center">
+                    <span className="text-green-500 mr-2">✓</span>
+                    <span>Conference Kit</span>
+                  </div>
+                  <div className="flex items-center">
+                    <span className="text-green-500 mr-2">✓</span>
+                    <span>Lunch & Tea</span>
+                  </div>
+                  <div className="flex items-center">
+                    <span className="text-green-500 mr-2">✓</span>
+                    <span>Certificate</span>
+                  </div>
+                  <div className="flex items-center">
+                    <span className="text-green-500 mr-2">✓</span>
+                    <span>Conference Materials</span>
+                  </div>
                 </div>
               </div>
             </div>
@@ -305,7 +374,7 @@ const Home = () => {
           
           <div className="text-center">
             <Link
-              to="/committees"
+              to="/committee"
               className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-gray-800 to-gray-900 hover:from-gray-900 hover:to-black text-white rounded-xl font-semibold transition-all duration-300 transform hover:scale-105"
             >
               Explore All Committees
@@ -327,13 +396,13 @@ const Home = () => {
             Ready to Begin Your Diplomatic Journey?
           </h2>
           <p className="text-xl mb-8 opacity-90 animate-slide-up">
-            Join hundreds of delegates in shaping global discourse at FMUN 2024
+            Join hundreds of delegates in shaping global discourse at FMUN 2026
           </p>
           <Link
-            to="/register"
+            to="/committee"
             className="inline-flex items-center px-8 py-4 bg-white text-gray-900 rounded-xl font-bold text-lg transition-all duration-300 transform hover:scale-105 hover:shadow-2xl animate-bounce-slow"
           >
-            Register Now
+            View Committees
             <svg className="w-6 h-6 ml-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
             </svg>
@@ -389,6 +458,15 @@ const Home = () => {
           }
         }
         
+        @keyframes shimmer {
+          0% {
+            transform: translateX(-100%);
+          }
+          100% {
+            transform: translateX(100%);
+          }
+        }
+        
         .animate-fade-in {
           animation: fade-in 0.8s ease-out forwards;
         }
@@ -404,6 +482,10 @@ const Home = () => {
         
         .animate-bounce-slow {
           animation: bounce-slow 2s infinite;
+        }
+        
+        .animate-shimmer {
+          animation: shimmer 2s infinite;
         }
         
         .animation-delay-2000 {
